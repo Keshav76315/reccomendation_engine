@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -12,7 +13,7 @@ st.set_page_config(page_title="EduPro Analytics", page_icon="🎓", layout="wide
 # --- Load Data Cache ---
 @st.cache_data
 def load_app_data():
-    base_dir = "z:/Documents/UnifiedMentor/student_segmentation/data"
+    base_dir = os.path.join(os.path.dirname(__file__), "data")
 
     courses = pd.read_csv(f"{base_dir}/Courses.csv")
     transactions = pd.read_csv(f"{base_dir}/Transactions.csv")
